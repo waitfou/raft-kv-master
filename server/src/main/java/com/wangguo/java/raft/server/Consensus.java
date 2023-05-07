@@ -1,2 +1,8 @@
-package com.wangguo.java.raft.server;public interface Consensus {
+package com.wangguo.java.raft.server;
+
+import com.wangguo.java.raft.common.entity.RvoteResult;
+
+public interface Consensus{
+    RvoteResult requestVote(RvoteParam param);
+    AentryResult appendEntries(AentryParam param);
 }

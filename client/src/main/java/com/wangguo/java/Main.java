@@ -1,4 +1,6 @@
-package com.wangguo.java;public class Main {
+package com.wangguo.java;
+
+public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
     }

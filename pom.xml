@@ -4,13 +4,52 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <groupId>com.wangguo.java</groupId>
     <artifactId>raft-kv-master</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <version>1.0-RELEASE</version>
+    <modules>
+        <module>server</module>
+        <module>common</module>
+        <module>client</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
-    
+<!--    <repositories>-->
+<!--        <repository>-->
+<!--            <id>huaweicloud</id>-->
+<!--            <name>huaweicloud</name>-->
+<!--            <url>>https://mirrors.huaweicloud.com/repository/maven/</url>-->
+<!--        </repository>-->
+<!--    </repositories>-->
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.26</version>
+        </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.wangguo.java</groupId>
+            <artifactId>server</artifactId>
+            <version>1.0-RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>com.wangguo.java</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0-RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.rocksdb</groupId>
+            <artifactId>rocksdbjni</artifactId>
+            <version>5.14.3</version>
+        </dependency>
+    </dependencies>
 </project>
