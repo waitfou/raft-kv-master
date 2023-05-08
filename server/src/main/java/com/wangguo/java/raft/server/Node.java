@@ -6,6 +6,7 @@ import com.wangguo.java.raft.common.entity.NodeConfig;
 public interface Node extends LifeCycle {
     /**
      * 设置配置文件
+     * @param config
      */
     void setConfig(NodeConfig config);
 

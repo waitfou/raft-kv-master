@@ -36,7 +36,17 @@ public class Result {
         FAIL(0),SUCCESS(1);
 
         int code;
-        S
+        Status(int code){
+            this.code = code;
+        }
+        public static Status value(int v){
+            for(Status i:values()){
+                if(i.code == v){
+                    return i;
+                }
+            }
+            return null;
+        }
     }
     public static final class Builder{
         private int status;
