@@ -29,6 +29,14 @@ public class PeerSet implements Serializable {
         self = peer;
     }
 
+    public List<Peer> getList() {
+        return list;
+    }
+
+    public Peer getSelf() {
+        return self;
+    }
+
     /**
      * 移除节点
      * @param peer

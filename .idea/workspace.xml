@@ -4,26 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24cbfa49-19cd-45aa-a843-dba7da8ce11c" name="Changes" comment="2023-5-7">
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/entity/AentryParam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/entity/AentryResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/entity/Peer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/entity/PeerSet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/entity/RvoteParam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/rpc/Request.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/rpc/Response.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/RpcService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/exception/RaftNotSupportException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/ClusterMembershipChangesImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultRpcServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/rpc/RaftUserProcessor.java" afterDir="false" />
+    <list default="true" id="24cbfa49-19cd-45aa-a843-dba7da8ce11c" name="Changes" comment="2023-5-8">
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/RaftRemotingException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/entity/ClientKVAck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/entity/ClientKVReq.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/rpc/DefaultRpcClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/rpc/RpcClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/current/RaftThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/current/RaftThreadPool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/current/RaftThreadPoolExecutor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultConsensus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultLogModule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/entity/AentryParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/entity/AentryParam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/entity/PeerSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/entity/PeerSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/rpc/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/rpc/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/Consensus.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/Consensus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/LogModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/LogModule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/changes/ClusterMembershipChanges.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/changes/ClusterMembershipChanges.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/changes/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/changes/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/RaftNodeBootStrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/RaftNodeBootStrap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/constant/StateMachineSaveType.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/constant/StateMachineSaveType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultRpcServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/rpc/DefaultRpcServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +81,7 @@
       <updated>1683202343314</updated>
       <workItem from="1683202345682" duration="20728000" />
       <workItem from="1683338340718" duration="7361000" />
-      <workItem from="1683365006579" duration="18499000" />
+      <workItem from="1683365006579" duration="48069000" />
     </task>
     <task id="LOCAL-00001" summary="2023-5-7">
       <created>1683462042219</created>
@@ -87,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683462042219</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="2023-5-8">
+      <created>1683518621744</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1683518621744</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,6 +117,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="2023-5-7" />
-    <option name="LAST_COMMIT_MESSAGE" value="2023-5-7" />
+    <MESSAGE value="2023-5-8" />
+    <option name="LAST_COMMIT_MESSAGE" value="2023-5-8" />
   </component>
 </project>

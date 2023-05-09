@@ -8,7 +8,8 @@ import java.io.Serializable;
 /**
  * 对客户端的请求进行包装
  */
-@Builder
+
+@Builder //Builder为我们自动生成可以让类实例化所需的代码，不需要手动编写
 @Data
 public class Request implements Serializable {
     /**
