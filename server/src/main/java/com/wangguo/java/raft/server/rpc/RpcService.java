@@ -1,4 +1,4 @@
-package com.wangguo.java.raft.server;
+package com.wangguo.java.raft.server.rpc;
 
 import com.wangguo.java.raft.common.LifeCycle;
 import com.wangguo.java.raft.common.rpc.Request;

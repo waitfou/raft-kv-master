@@ -10,7 +10,7 @@ import java.util.Arrays;
 @Slf4j
 public class RaftNodeBootStrap {
     public static void main(String[] args) throws Throwable{
-
+        boot();
     }
     public static void boot() throws Throwable{
         String property = System.getProperty("cluster.addr.list");

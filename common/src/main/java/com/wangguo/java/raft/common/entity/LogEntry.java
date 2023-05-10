@@ -11,7 +11,9 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class LogEntry implements Serializable, Comparable {
+    //索引
     private Long index;
+    //任期号
     private long term;
     private Command command;
 

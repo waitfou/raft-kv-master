@@ -18,6 +18,7 @@ public class RaftThreadPool {
 
     private static ScheduledExecutorService ss = getScheduled();
 
+    private static ThreadPoolExecutor te = getThreadPool();
     private static ThreadPoolExecutor getThreadPool() {
         return new RaftThreadPoolExecutor(
                 cup,
@@ -37,6 +38,16 @@ public class RaftThreadPool {
 
     public static void scheduleWithFixedDelay(Runnable r, long delay){
         ss.scheduleWithFixedDelay(r, 0, delay, TimeUnit.MILLISECONDS);
+    }
+    public static void execute(Runnable r){
+        te.execute(r);
+    }
+    public static void execute(Runnable r, boolean sync){
+        if(sync){
+            r.run();
+        }else{
+            te.execute(r);
+        }
     }
     /**
      * 创建线程的工厂

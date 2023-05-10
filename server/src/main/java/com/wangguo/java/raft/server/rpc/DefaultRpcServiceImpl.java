@@ -8,10 +8,8 @@ import com.wangguo.java.raft.common.entity.Peer;
 import com.wangguo.java.raft.common.entity.RvoteParam;
 import com.wangguo.java.raft.common.rpc.Request;
 import com.wangguo.java.raft.common.rpc.Response;
-import com.wangguo.java.raft.server.RpcService;
 import com.wangguo.java.raft.server.changes.ClusterMembershipChanges;
 import com.wangguo.java.raft.server.impl.DefaultNode;
-import com.wangguo.java.raft.server.rpc.RaftUserProcessor;
 import lombok.extern.slf4j.Slf4j;
 
 /**
