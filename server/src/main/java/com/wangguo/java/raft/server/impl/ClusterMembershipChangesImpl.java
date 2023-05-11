@@ -1,5 +1,6 @@
 package com.wangguo.java.raft.server.impl;
 
+import com.wangguo.java.raft.common.entity.NodeStatus;
 import com.wangguo.java.raft.common.entity.Peer;
 import com.wangguo.java.raft.server.changes.ClusterMembershipChanges;
 import com.wangguo.java.raft.server.changes.Result;
@@ -25,7 +26,14 @@ public class ClusterMembershipChangesImpl implements ClusterMembershipChanges {
      */
     @Override
     public synchronized Result addPeer(Peer newPeer) {
-        if(node.peerSe)
+        // 如果集群中已经包含了该节点，那么直接返回。
+        if (node.peerSet.getPeersWithOutSelf().contains(newPeer)) {
+            return new Result();
+        }
+        node.peerSet.getPeersWithOutSelf().add(newPeer);
+        if (node.status == NodeStatus.LEADER) {
+            node.nextIndexs.put(newPeer, 0L);
+        }
     }
 
     @Override

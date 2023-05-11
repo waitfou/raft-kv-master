@@ -145,6 +145,22 @@ public class DefaultLogModule implements LogModule {
         boolean tryLock;
         try{
             tryLock = lock.tryLock(3000, MILLISECONDS);
+            if(!tryLock){
+                throw new RuntimeException("tryLock fail, removeOnStartIndex fail");
+            }
+            for(long i = startIndex; i <= getLastIndex(); i++){
+                logDb.delete(String.valueOf(i).getBytes());
+                count++;
+            }
+            success = true;
+            log.warn("rocksDB removeOnStartIndex success,count={} startIndex={}, lastIndex={}", count, startIndex);
+        } catch (InterruptedException | RocksDBException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (success) {
+                updateLastIndex(getLastIndex() - count);
+                lock.unlock();
+            }
         }
     }
 

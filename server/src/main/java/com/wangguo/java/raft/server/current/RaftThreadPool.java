@@ -62,4 +62,7 @@ public class RaftThreadPool {
             return t;
         }
     }
+    public static <T> Future<T> submit(Callable r){
+        return te.submit(r);
+    }
 }

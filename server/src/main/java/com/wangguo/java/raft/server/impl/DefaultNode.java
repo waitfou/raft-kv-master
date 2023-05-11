@@ -14,7 +14,12 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Future;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 抽象机器节点，初始化为follower,角色随时变化
@@ -41,9 +46,8 @@ public class DefaultNode implements Node, ClusterMembershipChanges {
     public final long heartBeatTick = 5 * 100;
 
 
-    private HeartBeatTask heartBeatTask =
+    private HeartBeatTask heartBeatTask = new HeartBeatTask();
     public DefaultNode() {
-
     }
 
     public static DefaultNode getInstance() {
@@ -156,7 +160,7 @@ public class DefaultNode implements Node, ClusterMembershipChanges {
         rpcClient.init();
 
         //一致性模块初始化
-        consensus = new DefaultConsensus(this);
+        consensus = new DefaultConsensus(this); //告诉DefultConsensus类是哪个节点在调用它
         delegate = new ClusterMembershipChangesImpl(this);
         /**
          * 集群变动的代理
@@ -221,7 +225,44 @@ public class DefaultNode implements Node, ClusterMembershipChanges {
 
     @Override
     public ClientKVAck handlerClientRequest(ClientKVReq request) {
+        log.warn("handlerClientRequest handler {} operation, and key : [{}], value : [{}]",
+                ClientKVReq.Type.value(request.getType()), request.getKey(), request.getValue());
+        // 如果来自客户端的请求到达非领导节点，那么该节点要把请求转发（重定向）到领导节点
+        if (status != NodeStatus.LEADER) {
+            log.warn("I not am leader, only invoke redirect method, leader addr : {}, my addr: {}", peerSet.getLeader(), peerSet.getSelf().getAddr());
+            return redirect(request);
+        }
+        // 如果客户端的请求是get请求，那么就就查找并返回给客户端他想要获取的信息
+        if (request.getType() == ClientKVReq.GET){
+            LogEntry logEntry = stateMachine.get(request.getKey());
+            if (logEntry != null){
+                return new ClientKVAck(logEntry);
+            }
+            return new ClientKVAck(null);//如果没找到，返回null
+        }
+        // 如果是PUT请求
+        LogEntry logEntry = LogEntry.builder()
+                .command(Command.builder().
+                        key(request.getKey()).
+                        value(request.getValue()).
+                        build())
+                .term(currentTerm)
+                .build();
 
+        // 预提交到本地日志， TODO 预提交
+        logModule.write(logEntry);
+        log.info("write logModule success, logEntry info : {}, log index : {}", logEntry, logEntry.getIndex());
+        // 原子操作类型数据
+        final AtomicInteger success = new AtomicInteger(0);
+        List<Future<Boolean>> futureList = new ArrayList<>();
+
+        int count = 0;
+        // 把日志复制到别的机器
+        for(Peer peer : peerSet.getPeersWithOutSelf()) {
+            count ++;
+            // 并行发起RPC复制
+            futureList.add()
+        }
     }
 
     /**
@@ -246,7 +287,7 @@ public class DefaultNode implements Node, ClusterMembershipChanges {
     class HeartBeatTask implements Runnable{
         @Override
         public void run() {
-            //如果不是领导者
+            //如果不是领导者就返回，因为只有领导者需要不断发送心跳信息
             if(status != NodeStatus.LEADER){
                 return;
             }
@@ -278,10 +319,53 @@ public class DefaultNode implements Node, ClusterMembershipChanges {
                         peer.getAddr()
                 );
                 RaftThreadPool.execute(()->{
-
-                });
+                    try{
+                        AentryResult aentryResult = getRpcClient().send(request);
+                        long term = aentryResult.getTerm();
+                        // 如果Follower节点的term比我这个领导者还大，那么我这个领导者就要变成follower
+                        if(term>currentTerm){
+                            log.error("self will become follower, he's term : {}, my term : {}", term, currentTerm);
+                            currentTerm = term;
+                            votedFor = "";
+                            status = NodeStatus.FOLLOWER;
+                        }
+                    } catch (Exception e) {
+                        log.error("heartBeatTask RPC Fail, request URL : {}", request.getUrl());
+                    }
+                },false);
             }
         }
+    }
+
+    /**
+     * 复制到其他机器
+     */
+    public Future<Boolean> replication(Peer peer, LogEntry entry){
+        return RaftThreadPool.submit(()->{
+            long start = System.currentTimeMillis(), end = start;
+            while(end - start < 20 * 1000L){
+                // 设置日志追加RPC的参数
+                AentryParam aentryParam = AentryParam.builder().build();
+                aentryParam.setTerm(currentTerm);
+                aentryParam.setServerId(peer.getAddr());
+                aentryParam.setLeaderId(peerSet.getSelf().getAddr());
+                aentryParam.setLeaderCommit(commitIndex);
+
+                long nextIndex = nextIndexs.get(peer); //获取该节点的下一个索引
+                LinkedList<LogEntry> logEntries = new LinkedList<>();
+                // 如果待复制的日志列表中的日志大于该节点需要的下一个索引
+                if(entry.getIndex() >= nextIndex){
+                    for (long i = nextIndex; i <= entry.getIndex(); i++){
+                        LogEntry l = logModule.read(i); // 依据索引从日志模块中复制日志
+                        if(l != null) {
+                            logEntries.add(l);
+                        }
+                    }
+                }else{
+                    logEntries.add(entry);
+                }
+            }
+        });
     }
 
 }

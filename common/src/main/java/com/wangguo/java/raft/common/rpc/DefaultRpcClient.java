@@ -35,6 +35,7 @@ public class DefaultRpcClient implements RpcClient {
      */
     @Override
     public <R> R send(Request request, int timeout) {
+        //初始化返回结果
         Response<R> result;
         try{
             //invokeSync是同步调用
