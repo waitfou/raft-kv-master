@@ -1,9 +1,8 @@
 package com.wangguo.java.raft.common.rpc;
 
-import com.alipay.remoting.exception.RemotingException;
 import com.wangguo.java.raft.common.RaftRemotingException;
+import com.alipay.remoting.exception.RemotingException;
 import lombok.extern.slf4j.Slf4j;
-
 
 import java.util.concurrent.TimeUnit;
 

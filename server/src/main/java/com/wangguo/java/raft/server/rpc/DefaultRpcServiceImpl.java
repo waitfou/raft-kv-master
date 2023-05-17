@@ -31,6 +31,7 @@ public class DefaultRpcServiceImpl implements RpcService {
         this.node = node;
     }
 
+    // 接收来自客户端的请求，并进行处理
     @Override
     public Response<?> handlerRequest(Request request) {
         /**
@@ -44,7 +45,7 @@ public class DefaultRpcServiceImpl implements RpcService {
             return new Response<>(node.handlerClientRequest((ClientKVReq) request.getObj()));
         } else if (request.getCmd() == Request.CHANGE_CONFIG_REMOVE) {
             return new Response<>(((ClusterMembershipChanges) node).removePeer((Peer) request.getObj()));
-        } else if (request.getCmd() == Request.CHANGE_CONFIG_ADD) {
+        } else if (request.getCmd() == Request.CHANGE_CONFIG_ADD) { // 集群中添加了节点
             return new Response<>(((ClusterMembershipChanges) node).addPeer((Peer) request.getObj())); // 子类可以向父类转型
         }
         return null;

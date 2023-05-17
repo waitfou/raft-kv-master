@@ -62,6 +62,7 @@ public class RaftThreadPool {
             return t;
         }
     }
+    //在线程池中，如果我们需要返回结果则可以调用submit方法，如果需要执行结果的话则可以实现callable，实现Runnable的线程是没有返回值的
     public static <T> Future<T> submit(Callable r){
         return te.submit(r);
     }

@@ -85,4 +85,8 @@ public class PeerSet implements Serializable {
                 ", self=" + self +
                 '}';
     }
+    // 向集群集合中添加节点
+    public void addPeer(Peer peer){
+        list.add(peer);
+    }
 }

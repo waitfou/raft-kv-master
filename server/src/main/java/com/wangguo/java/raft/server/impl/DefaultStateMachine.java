@@ -19,9 +19,11 @@ public class DefaultStateMachine implements StateMachine {
     public String dbDir;
     public String stateMachineDir;
 
+    // 用RocksDB存放日志
     public RocksDB machineDb;
 
     private DefaultStateMachine() {
+        // 该状态机的地址
         dbDir = "./rocksDB-raft/" + System.getProperty("serverPort");
         stateMachineDir = dbDir + "/stateMachine";
         RocksDB.loadLibrary();
@@ -68,7 +70,7 @@ public class DefaultStateMachine implements StateMachine {
     }
 
     @Override
-    public void apply(LogEntry logEntry) {
+    public void apply(LogEntry logEntry) { // 将日志正式提交到状态机上
         try{
             Command command = logEntry.getCommand();
             if(command==null){
@@ -76,6 +78,7 @@ public class DefaultStateMachine implements StateMachine {
                 return;
             }
             String key = command.getKey();
+            // 将该条日志信息存放到该状态机的RocksDB中
             machineDb.put(key.getBytes(), JSON.toJSONBytes(logEntry));
         } catch (RocksDBException e) {
             throw new RuntimeException(e);
