@@ -4,19 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24cbfa49-19cd-45aa-a843-dba7da8ce11c" name="Changes" comment="2023-5-11">
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/wangguo/java/raft/client/RaftClient1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/wangguo/java/raft/client/RaftClientRPC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/com/wangguo/java/raft/client/util/SleepHelper.java" afterDir="false" />
+    <list default="true" id="24cbfa49-19cd-45aa-a843-dba7da8ce11c" name="Changes" comment="2023-5-17">
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/entity/ReplicationFailModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/util/LongConvert.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/entity/PeerSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/entity/PeerSet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/rpc/DefaultRpcClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/rpc/DefaultRpcClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/current/RaftThreadPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/current/RaftThreadPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/ClusterMembershipChangesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/ClusterMembershipChangesImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/rpc/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/rpc/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/Consensus.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/Consensus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/StateMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/StateMachine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultConsensus.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultConsensus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultLogModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultLogModule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultStateMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultStateMachine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/rpc/DefaultRpcServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/rpc/DefaultRpcServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,7 +75,7 @@
       <workItem from="1683338340718" duration="7361000" />
       <workItem from="1683365006579" duration="62416000" />
       <workItem from="1683725766774" duration="4638000" />
-      <workItem from="1683769800414" duration="49784000" />
+      <workItem from="1683769800414" duration="82075000" />
     </task>
     <task id="LOCAL-00001" summary="2023-5-7">
       <created>1683462042219</created>
@@ -114,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683806295891</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="2023-5-17">
+      <created>1684310342101</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1684310342101</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +143,7 @@
     <MESSAGE value="2023-5-9" />
     <MESSAGE value="2023-5-10" />
     <MESSAGE value="2023-5-11" />
-    <option name="LAST_COMMIT_MESSAGE" value="2023-5-11" />
+    <MESSAGE value="2023-5-17" />
+    <option name="LAST_COMMIT_MESSAGE" value="2023-5-17" />
   </component>
 </project>

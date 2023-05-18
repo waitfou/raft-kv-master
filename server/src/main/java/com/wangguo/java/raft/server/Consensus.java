@@ -11,6 +11,10 @@ import com.wangguo.java.raft.common.entity.RvoteResult;
 public interface Consensus{
     /**
      * 请求投票RPC
+     *
+     * 接收者实现：
+     *  如果term < currentTerm 返回false 不给他投票
+     *  如果votedFor为空（也就是我还没约给任何投票）或者自己就是candidateId， 并且候选人的日志至少和自己一样新，那么就投票给他（5.2节， 5.4节）
      * @param param
      * @return
      */

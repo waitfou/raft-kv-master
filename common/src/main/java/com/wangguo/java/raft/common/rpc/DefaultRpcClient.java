@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Slf4j
 public class DefaultRpcClient implements RpcClient {
+    // 蚂蚁金服的RPC处理的客户端
     private final static com.alipay.remoting.rpc.RpcClient CLIENT = new com.alipay.remoting.rpc.RpcClient();
 
     /**

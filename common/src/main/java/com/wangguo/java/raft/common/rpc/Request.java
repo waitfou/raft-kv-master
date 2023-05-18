@@ -38,6 +38,13 @@ public class Request implements Serializable {
     private Object obj;
     private int cmd = -1;
     private String url;
+
+    /**
+     * 请求包装
+     * @param cmd 表示请求的类型
+     * @param obj 表示发送给对方的信息
+     * @param url 表示请求的地址
+     */
     public Request(int cmd, Object obj, String url){
         this.cmd = cmd;
         this.obj = obj;

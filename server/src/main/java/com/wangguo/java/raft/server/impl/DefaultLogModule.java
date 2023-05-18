@@ -109,7 +109,8 @@ public class DefaultLogModule implements LogModule {
             throw new RuntimeException(e);
         }finally {
             if(success){
-
+                 // 如果成功，更新当前follower节点的最后一个索引
+                updateLastIndex(logEntry.getIndex());
             }
             lock.unlock();//释放锁
         }
