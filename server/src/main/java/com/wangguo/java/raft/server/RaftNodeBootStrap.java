@@ -35,6 +35,7 @@ public class RaftNodeBootStrap {
         config.setStateMachineSaveType(StateMachineSaveType.ROCKS_DB.getTypeName());
 
         Node node = DefaultNode.getInstance();
+        // 配置节点的信息，包括端口等信息
         node.setConfig(config);
 
         /**

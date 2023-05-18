@@ -155,8 +155,7 @@ public class DefaultNode implements Node, ClusterMembershipChanges {
     /* ==================================================================== */
 
     /**
-     * 默认节点初始化时的一些操作
-     *
+     * 默认节点初始化时的一些操作，在启动类中调用该节点的init方法对节点进行一些其他初始化
      * @throws Throwable
      */
     @Override
@@ -167,10 +166,10 @@ public class DefaultNode implements Node, ClusterMembershipChanges {
         rpcServer.init();
         rpcClient.init();
 
-        //一致性模块初始化
+        //创建专属于自己的一致性模块
         consensus = new DefaultConsensus(this); //告诉DefultConsensus类是哪个节点在调用它
         /**
-         * 集群变动的代理
+         * 创建专属于自己的集群变动代理
          */
         delegate = new ClusterMembershipChangesImpl(this);
 
@@ -181,8 +180,11 @@ public class DefaultNode implements Node, ClusterMembershipChanges {
          */
         // 在线程中添加一个周期性执行的任务。有4个参数 command, initialDelay, delay, unit 分别是
         // 要执行的任务、第一次延迟延迟的时间、一次执行的结束到下一次执行的开始的时间、时间单位
+        // leader节点每过500ms就要向其他节点发送一次心跳。告诉别人leader节点还在。以免follower发起新的选举
         RaftThreadPool.scheduleWithFixedDelay(heartBeatTask, 500);
+        // 集群刚刚启动的时候，就是通过electionTask完成第一个leader的选举的
         RaftThreadPool.scheduleAtFixedRate(electionTask, 6000, 500);
+        // 这个暂时忽略，是算法的细节的优化
         RaftThreadPool.execute(replicationFailQueueConsumer);
 
         LogEntry logEntry = logModule.getLast();
@@ -195,7 +197,11 @@ public class DefaultNode implements Node, ClusterMembershipChanges {
 
     @Override
     public void destroy() throws Throwable {
-
+        rpcServer.destroy();
+        stateMachine.destroy();
+        rpcClient.destroy();
+        running = false;
+        log.info("destory success");
     }
 
     //每当创建一个节点都要对该节点进行配置，对他的PeerSet，logModule属性等赋予初始值

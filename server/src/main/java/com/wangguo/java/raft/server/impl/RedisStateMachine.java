@@ -37,7 +37,7 @@ public class RedisStateMachine implements StateMachine {
         redisConfig.setMaxIdle(100);
         redisConfig.setTestOnBorrow(true);
         // todo config
-        jedisPool = new JedisPool(redisConfig, System.getProperty("redis.host", "127.0.0.1"), 6379)
+        jedisPool = new JedisPool(redisConfig, System.getProperty("redis.host", "127.0.0.1"), 6379);
     }
 
     @Override

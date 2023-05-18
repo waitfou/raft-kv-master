@@ -31,6 +31,7 @@ public class ClientKVReq implements Serializable {
                     return type;
                 }
             }
+            return null;
         }
     }
 }

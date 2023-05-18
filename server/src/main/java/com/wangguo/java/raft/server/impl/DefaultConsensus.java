@@ -2,6 +2,7 @@ package com.wangguo.java.raft.server.impl;
 
 import com.wangguo.java.raft.common.entity.*;
 import com.wangguo.java.raft.server.Consensus;
+import io.netty.util.internal.StringUtil;
 import lombok.extern.java.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,11 +15,57 @@ public class DefaultConsensus implements Consensus {
     private static final Logger LOGGER = LoggerFactory.getLogger(DefaultConsensus.class);
     public final DefaultNode node;
 
+    // RentrantLock是可重入的互斥锁
     public final ReentrantLock appendLock = new ReentrantLock();
+    public final ReentrantLock voteLock = new ReentrantLock();
     public DefaultConsensus(DefaultNode node){
         this.node = node;
     }
 
+
+    // 初期来自服务器的请求投票实现
+    @Override
+    public RvoteResult requestVote(RvoteParam param) {
+        try {
+            RvoteResult.Builder builder = RvoteResult.newBuilder();
+            // 如果加锁失败，那么拒绝投票
+            if (!voteLock.tryLock()) {
+                return builder.term(node.getCurrentTerm()).voteGranted(false).build();
+            }
+
+            // 如果对方任期没有自己新，那么拒绝给它投票
+            if (param.getTerm() < node.getCurrentTerm()) {
+                return builder.term(node.getCurrentTerm()).voteGranted(false).build();
+            }
+            LOGGER.info("node {} current vote for [{}], param candidateId : {}", node.peerSet.getSelf(), node.getVotedFor(), param.getCandidateId());
+            LOGGER.info("node {} current term {}, peer term : {}", node.peerSet.getSelf(), node.getCurrentTerm(), param.getTerm());
+
+            if((StringUtil.isNullOrEmpty(node.getVotedFor()) || node.getVotedFor().equals(param.getCandidateId()))) {
+                if (node.getLogModule().getLast() != null) {
+                    // 如果对方没有自己的任期新，那么拒绝给他投票
+                    if (node.getLogModule().getLast().getTerm() > param.getLastLogTerm()) {
+                        return RvoteResult.fail();
+                    }
+                    // ???
+                    if (node.getLogModule().getLastIndex() > param.getLastLogIndex()) {
+                        return RvoteResult.fail();
+                    }
+                }
+                // 切换自己为follower
+                node.status = NodeStatus.FOLLOWER;
+                // ???
+                node.peerSet.setLeader(new Peer(param.getCandidateId()));
+                node.setCurrentTerm(param.getTerm());
+                node.setVotedFor(param.getServerId());
+
+                // 返回成功
+                return builder.term(node.currentTerm).voteGranted(true).build();
+            }
+            return builder.term(node.currentTerm).voteGranted(false).build();
+        } finally {
+            voteLock.unlock();
+        }
+    }
 
     /**
      * 根据领导者发送过来的追加日志信息，向该节点追加日志

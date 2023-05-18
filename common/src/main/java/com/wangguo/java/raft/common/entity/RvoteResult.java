@@ -25,6 +25,9 @@ public class RvoteResult implements Serializable {
     public static RvoteResult ok(){
         return new RvoteResult(true);
     }
+    public static Builder newBuilder(){
+        return new Builder();
+    }
     public static final class Builder{
         private long term;
         private boolean voteGranted;

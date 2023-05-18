@@ -51,7 +51,9 @@ public class RaftClientRPC {
     public String put(String key, String value) {
         // 采用的是轮询,如果节点不是Leader节点，那么存放的消息会被转发到Leader节点。
         int index = (int) (count.incrementAndGet() % list.size());
+        // 获取挑选到的服务器的地址
         String addr = list.get(index);
+        // 包装客户端请求参数
         ClientKVReq obj = ClientKVReq.builder().key(key).value(value).type(ClientKVReq.PUT).build();
 
         Request r = Request.builder().obj(obj).url(addr).cmd(Request.CLIENT_REQ).build();
