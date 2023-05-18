@@ -6,13 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="24cbfa49-19cd-45aa-a843-dba7da8ce11c" name="Changes" comment="2023-5-18 完成了日志复制部分的所有代码和Leader选举的大部分代码">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/wangguo/java/raft/client/RaftClientRPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/wangguo/java/raft/client/RaftClientRPC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/entity/ClientKVReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/entity/ClientKVReq.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/entity/RvoteResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/entity/RvoteResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/RaftNodeBootStrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/RaftNodeBootStrap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultConsensus.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultConsensus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/RedisStateMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/RedisStateMachine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/wangguo/java/raft/client/RaftClient1.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/wangguo/java/raft/client/RaftClient1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/ClusterMembershipChangesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/ClusterMembershipChangesImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +55,18 @@
     "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="lu_raft_wg1" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="D:\soft\Java\jdk1.8.0_321\jre" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.wangguo.java.raft.server.RaftNodeBootStrap" />
+      <module name="server" />
+      <option name="PROGRAM_PARAMETERS" value="-DserverPort=8775" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -72,7 +79,7 @@
       <workItem from="1683338340718" duration="7361000" />
       <workItem from="1683365006579" duration="62416000" />
       <workItem from="1683725766774" duration="4638000" />
-      <workItem from="1683769800414" duration="86281000" />
+      <workItem from="1683769800414" duration="87556000" />
     </task>
     <task id="LOCAL-00001" summary="2023-5-7">
       <created>1683462042219</created>
@@ -123,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684412868006</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="2023-5-18 完成了日志复制部分的所有代码和Leader选举的大部分代码">
+      <created>1684417391949</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1684417391949</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

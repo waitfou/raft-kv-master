@@ -43,7 +43,7 @@ public class ClusterMembershipChangesImpl implements ClusterMembershipChanges {
                 // 把所有的日志复制给这个新节点
                 LogEntry entry = node.logModule.read(i);
                 if (entry != null){
-                    node.replication((newPeer, entry));
+                    node.replication(newPeer, entry);
                 }
             }
             for (Peer ignore : node.peerSet.getPeersWithOutSelf()) {
