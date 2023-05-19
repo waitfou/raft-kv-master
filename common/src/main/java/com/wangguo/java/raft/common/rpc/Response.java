@@ -1,6 +1,5 @@
 package com.wangguo.java.raft.common.rpc;
 
-import com.wangguo.java.raft.server.changes.Result;
 import lombok.Getter;
 import lombok.Setter;
 

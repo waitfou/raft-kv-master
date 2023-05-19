@@ -4,10 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24cbfa49-19cd-45aa-a843-dba7da8ce11c" name="Changes" comment="2023-5-18 完成了日志复制部分的所有代码和Leader选举的大部分代码">
+    <list default="true" id="24cbfa49-19cd-45aa-a843-dba7da8ce11c" name="Changes" comment="2023-5-18 完成了日志复制部分的所有代码和Leader选举的所有代码 待测试">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/log4j.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/CURRENT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/IDENTITY" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/LOCK" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/LOG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/LOG.old.1684481205761080" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/LOG.old.1684481607581311" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/resources/log4j.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/wangguo/java/raft/client/RaftClient1.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/wangguo/java/raft/client/RaftClient1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/rpc/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/rpc/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/rpc/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/rpc/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/ClusterMembershipChangesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/ClusterMembershipChangesImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultLogModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultLogModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultStateMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultStateMachine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,22 +67,69 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.42195123",
+    "settings.editor.selected.configurable": "project.propCompiler"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="lu_raft_wg1" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="D:\soft\Java\jdk1.8.0_321\jre" />
+  <component name="RunManager" selected="Application.lu-raft-wg5">
+    <configuration name="lu-raft-wg3" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.wangguo.java.raft.server.RaftNodeBootStrap" />
       <module name="server" />
-      <option name="PROGRAM_PARAMETERS" value="-DserverPort=8775" />
+      <option name="VM_PARAMETERS" value="-DserverPort=8777" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="lu-raft-wg4" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.wangguo.java.raft.server.RaftNodeBootStrap" />
+      <module name="server" />
+      <option name="VM_PARAMETERS" value="-DserverPort=8778" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="lu-raft-wg5" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.wangguo.java.raft.server.RaftNodeBootStrap" />
+      <module name="server" />
+      <option name="VM_PARAMETERS" value="-DserverPort=8779" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="lu_raft_wg1" type="Application" factoryName="Application" singleton="false">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.wangguo.java.raft.server.RaftNodeBootStrap" />
+      <module name="server" />
+      <option name="VM_PARAMETERS" value="-DserverPort=8775" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="lu_raft_wg2" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.wangguo.java.raft.server.RaftNodeBootStrap" />
+      <module name="server" />
+      <option name="VM_PARAMETERS" value="-DserverPort=8776" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.lu_raft_wg1" />
+      <item itemvalue="Application.lu_raft_wg2" />
+      <item itemvalue="Application.lu-raft-wg3" />
+      <item itemvalue="Application.lu-raft-wg4" />
+      <item itemvalue="Application.lu-raft-wg5" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -79,7 +143,8 @@
       <workItem from="1683338340718" duration="7361000" />
       <workItem from="1683365006579" duration="62416000" />
       <workItem from="1683725766774" duration="4638000" />
-      <workItem from="1683769800414" duration="87556000" />
+      <workItem from="1683769800414" duration="90114000" />
+      <workItem from="1684461930544" duration="7784000" />
     </task>
     <task id="LOCAL-00001" summary="2023-5-7">
       <created>1683462042219</created>
@@ -137,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684417391949</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="2023-5-18 完成了日志复制部分的所有代码和Leader选举的所有代码 待测试">
+      <created>1684418673422</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1684418673422</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,6 +235,7 @@
     <MESSAGE value="2023-5-11" />
     <MESSAGE value="2023-5-17" />
     <MESSAGE value="2023-5-18 完成了日志复制部分的所有代码和Leader选举的大部分代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="2023-5-18 完成了日志复制部分的所有代码和Leader选举的大部分代码" />
+    <MESSAGE value="2023-5-18 完成了日志复制部分的所有代码和Leader选举的所有代码 待测试" />
+    <option name="LAST_COMMIT_MESSAGE" value="2023-5-18 完成了日志复制部分的所有代码和Leader选举的所有代码 待测试" />
   </component>
 </project>

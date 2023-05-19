@@ -40,7 +40,7 @@ public class DefaultLogModule implements LogModule {
         //目录地址
         if(dbDir == null){
             //从运行的程序中获取当前程序使用的端口
-            dbDir = "./rocksDB-raft" + System.getProperty("serverPort");
+            dbDir = "./rocksDB-raft/" + System.getProperty("serverPort");
         }
         //日志地址
         if(logsDir == null){
@@ -59,7 +59,10 @@ public class DefaultLogModule implements LogModule {
             log.warn("make a new dir : " + logsDir);
         }
         try{
+            System.out.println("test3");
             logDb = RocksDB.open(options, logsDir);
+            System.out.println(logDb);
+            System.out.println("test4");
         } catch (RocksDBException e) {
             log.info(e.getMessage());
         }
@@ -154,7 +157,7 @@ public class DefaultLogModule implements LogModule {
                 count++;
             }
             success = true;
-            log.warn("rocksDB removeOnStartIndex success,count={} startIndex={}, lastIndex={}", count, startIndex);
+            log.warn("rocksDB removeOnStartIndex success,count={} startIndex={}, lastIndex={}", count, startIndex, getLastIndex());
         } catch (InterruptedException | RocksDBException e) {
             throw new RuntimeException(e);
         } finally {

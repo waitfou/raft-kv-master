@@ -31,7 +31,19 @@ public class DefaultStateMachine implements StateMachine {
         File file = new File(stateMachineDir);
         boolean success = false;
         if (!file.exists()) {
-            success = file.mkdir();
+            /**
+             * 注意：file.mkdirs与file.mkdir的区别
+             * file.mkdir() 如果你想在已经存在的文件夹下建立新的文件夹，
+             * 就可以用此方法。此方法不能在不存在的文件夹下建立新的文件夹。
+             * 假如想建立名字是”2019-03-16”文件夹，那么它的父文件夹必须存在。
+             *
+             * file.mkdirs() 如果你想根据File里的路径名建立文件夹
+             * （当你不知道此文件夹是否存在，也不知道父文件夹存在），
+             * 就可用此方法，它建立文件夹的原则是：如果父文件夹不存在并且最后
+             * 一级子文件夹不存在，它就自动新建所有路经里写的文件夹；
+             * 如果父文件夹存在，它就直接在已经存在的父文件夹下新建子文件夹
+             */
+            success = file.mkdirs();
         }
         if (success) {
             log.warn("make a new dir:" + stateMachineDir);
@@ -39,7 +51,9 @@ public class DefaultStateMachine implements StateMachine {
         Options options = new Options();
         options.setCreateIfMissing(true);
         try {
+            System.out.println("test1");
             machineDb = RocksDB.open(options, stateMachineDir);
+            System.out.println("test2");
         } catch (RocksDBException e) {
             throw new RuntimeException(e);
         }
@@ -71,9 +85,9 @@ public class DefaultStateMachine implements StateMachine {
 
     @Override
     public void apply(LogEntry logEntry) { // 将日志正式提交到状态机上
-        try{
+        try {
             Command command = logEntry.getCommand();
-            if(command==null){
+            if (command == null) {
                 log.warn("insert no-op log, logEntry={}", logEntry);
                 return;
             }
@@ -89,7 +103,7 @@ public class DefaultStateMachine implements StateMachine {
     public LogEntry get(String key) {
         try {
             byte[] result = machineDb.get(key.getBytes());
-            if (result==null){
+            if (result == null) {
                 return null;
             }
             return JSON.parseObject(result, LogEntry.class);
@@ -100,9 +114,9 @@ public class DefaultStateMachine implements StateMachine {
 
     @Override
     public String getString(String key) {
-        try{
+        try {
             byte[] bytes = machineDb.get(key.getBytes());
-            if(bytes!=null){
+            if (bytes != null) {
                 return new String(bytes);
             }
         } catch (RocksDBException e) {
@@ -113,7 +127,7 @@ public class DefaultStateMachine implements StateMachine {
 
     @Override
     public void setString(String key, String value) {
-        try{
+        try {
             machineDb.put(key.getBytes(), value.getBytes());
         } catch (RocksDBException e) {
             throw new RuntimeException(e);
@@ -122,8 +136,8 @@ public class DefaultStateMachine implements StateMachine {
 
     @Override
     public void delString(String... key) { //String... 表示字符串参数个数不固定，也就是叫做可变长参数
-        try{
-            for(String s:key){
+        try {
+            for (String s : key) {
                 machineDb.delete(s.getBytes());
             }
         } catch (RocksDBException e) {

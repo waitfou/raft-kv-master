@@ -54,13 +54,26 @@ public class ClusterMembershipChangesImpl implements ClusterMembershipChanges {
                         .obj(newPeer)
                         .build();
                 Result result = node.rpcClient.send(request);
+                if (result != null && result.getStatus() == Result.Status.SUCCESS.getCode()) {
+                    LOGGER.info("replication config success, peer : {}, newServer : {}", newPeer, newPeer);
+                } else {
+                    LOGGER.warn("replication config fail, peer : {}, newServer : {}", newPeer, newPeer);
+                }
             }
         }
         return new Result();
     }
 
+    /**
+     * 必须是同步的，一次只能删除一个节点
+     * @param oldPeer
+     * @return
+     */
     @Override
-    public Result removePeer(Peer oldPeer) {
-        return null;
+    public synchronized Result removePeer(Peer oldPeer) {
+        node.peerSet.getPeersWithOutSelf().remove(oldPeer);
+        node.nextIndexs.remove(oldPeer);
+        node.matchIndexs.remove(oldPeer);
+        return new Result();
     }
 }

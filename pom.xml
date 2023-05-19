@@ -14,10 +14,11 @@
         <module>client</module>
     </modules>
 
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
+<!--    <properties>-->
+<!--        <maven.compiler.source>8</maven.compiler.source>-->
+<!--        <maven.compiler.target>8</maven.compiler.target>-->
+<!--    </properties>-->
+
 <!--    <repositories>-->
 <!--        <repository>-->
 <!--            <id>huaweicloud</id>-->
@@ -48,19 +49,11 @@
             <version>2.9.0</version>
         </dependency>
         <dependency>
-            <groupId>com.wangguo.java</groupId>
-            <artifactId>server</artifactId>
-            <version>1.0-RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>com.wangguo.java</groupId>
-            <artifactId>common</artifactId>
-            <version>1.0-RELEASE</version>
-        </dependency>
-        <dependency>
             <groupId>org.rocksdb</groupId>
             <artifactId>rocksdbjni</artifactId>
             <version>5.14.3</version>
         </dependency>
     </dependencies>
+
+
 </project>
