@@ -1,0 +1,84 @@
+2023/05/19-15:52:42.608080 7fc491e53700 RocksDB version: 5.14.3
+2023/05/19-15:52:42.609031 7fc491e53700 Git sha rocksdb_build_git_sha:
+2023/05/19-15:52:42.609049 7fc491e53700 Compile date Oct  9 2018
+2023/05/19-15:52:42.609067 7fc491e53700 DB SUMMARY
+2023/05/19-15:52:42.612756 7fc491e53700 CURRENT file:  CURRENT
+2023/05/19-15:52:42.612768 7fc491e53700 IDENTITY file:  IDENTITY
+2023/05/19-15:52:42.613194 7fc491e53700 MANIFEST file:  MANIFEST-000011 size: 59 Bytes
+2023/05/19-15:52:42.613214 7fc491e53700 SST files in ./rocksDB-raft/8775/stateMachine dir, Total Num: 0, files: 
+2023/05/19-15:52:42.613224 7fc491e53700 Write Ahead Log file in ./rocksDB-raft/8775/stateMachine: 000012.log size: 0 ; 
+2023/05/19-15:52:42.613230 7fc491e53700                         Options.error_if_exists: 0
+2023/05/19-15:52:42.613232 7fc491e53700                       Options.create_if_missing: 1
+2023/05/19-15:52:42.613233 7fc491e53700                         Options.paranoid_checks: 1
+2023/05/19-15:52:42.613234 7fc491e53700                                     Options.env: 0x7fc455640080
+2023/05/19-15:52:42.613236 7fc491e53700                                Options.info_log: 0x7fc48c6acb70
+2023/05/19-15:52:42.613237 7fc491e53700                Options.max_file_opening_threads: 16
+2023/05/19-15:52:42.613239 7fc491e53700                              Options.statistics: (nil)
+2023/05/19-15:52:42.613241 7fc491e53700                               Options.use_fsync: 0
+2023/05/19-15:52:42.613242 7fc491e53700                       Options.max_log_file_size: 0
+2023/05/19-15:52:42.613244 7fc491e53700                  Options.max_manifest_file_size: 18446744073709551615
+2023/05/19-15:52:42.613245 7fc491e53700                   Options.log_file_time_to_roll: 0
+2023/05/19-15:52:42.613246 7fc491e53700                       Options.keep_log_file_num: 1000
+2023/05/19-15:52:42.613248 7fc491e53700                    Options.recycle_log_file_num: 0
+2023/05/19-15:52:42.613249 7fc491e53700                         Options.allow_fallocate: 1
+2023/05/19-15:52:42.613250 7fc491e53700                        Options.allow_mmap_reads: 0
+2023/05/19-15:52:42.613252 7fc491e53700                       Options.allow_mmap_writes: 0
+2023/05/19-15:52:42.613253 7fc491e53700                        Options.use_direct_reads: 0
+2023/05/19-15:52:42.613254 7fc491e53700                        Options.use_direct_io_for_flush_and_compaction: 0
+2023/05/19-15:52:42.613256 7fc491e53700          Options.create_missing_column_families: 0
+2023/05/19-15:52:42.613257 7fc491e53700                              Options.db_log_dir: 
+2023/05/19-15:52:42.613258 7fc491e53700                                 Options.wal_dir: ./rocksDB-raft/8775/stateMachine
+2023/05/19-15:52:42.613260 7fc491e53700                Options.table_cache_numshardbits: 6
+2023/05/19-15:52:42.613261 7fc491e53700                      Options.max_subcompactions: 1
+2023/05/19-15:52:42.613263 7fc491e53700                  Options.max_background_flushes: -1
+2023/05/19-15:52:42.613264 7fc491e53700                         Options.WAL_ttl_seconds: 0
+2023/05/19-15:52:42.613266 7fc491e53700                       Options.WAL_size_limit_MB: 0
+2023/05/19-15:52:42.613267 7fc491e53700             Options.manifest_preallocation_size: 4194304
+2023/05/19-15:52:42.613269 7fc491e53700                     Options.is_fd_close_on_exec: 1
+2023/05/19-15:52:42.613270 7fc491e53700                   Options.advise_random_on_open: 1
+2023/05/19-15:52:42.613272 7fc491e53700                    Options.db_write_buffer_size: 0
+2023/05/19-15:52:42.613273 7fc491e53700                    Options.write_buffer_manager: 0x7fc48c6abb80
+2023/05/19-15:52:42.613275 7fc491e53700         Options.access_hint_on_compaction_start: 1
+2023/05/19-15:52:42.613276 7fc491e53700  Options.new_table_reader_for_compaction_inputs: 0
+2023/05/19-15:52:42.613277 7fc491e53700           Options.random_access_max_buffer_size: 1048576
+2023/05/19-15:52:42.613279 7fc491e53700                      Options.use_adaptive_mutex: 0
+2023/05/19-15:52:42.613280 7fc491e53700                            Options.rate_limiter: (nil)
+2023/05/19-15:52:42.613284 7fc491e53700     Options.sst_file_manager.rate_bytes_per_sec: 0
+2023/05/19-15:52:42.613807 7fc491e53700                       Options.wal_recovery_mode: 2
+2023/05/19-15:52:42.613819 7fc491e53700                  Options.enable_thread_tracking: 0
+2023/05/19-15:52:42.613820 7fc491e53700                  Options.enable_pipelined_write: 0
+2023/05/19-15:52:42.613820 7fc491e53700         Options.allow_concurrent_memtable_write: 1
+2023/05/19-15:52:42.613821 7fc491e53700      Options.enable_write_thread_adaptive_yield: 1
+2023/05/19-15:52:42.613822 7fc491e53700             Options.write_thread_max_yield_usec: 100
+2023/05/19-15:52:42.613823 7fc491e53700            Options.write_thread_slow_yield_usec: 3
+2023/05/19-15:52:42.613823 7fc491e53700                               Options.row_cache: None
+2023/05/19-15:52:42.613824 7fc491e53700                              Options.wal_filter: None
+2023/05/19-15:52:42.613825 7fc491e53700             Options.avoid_flush_during_recovery: 0
+2023/05/19-15:52:42.613826 7fc491e53700             Options.allow_ingest_behind: 0
+2023/05/19-15:52:42.613826 7fc491e53700             Options.preserve_deletes: 0
+2023/05/19-15:52:42.613827 7fc491e53700             Options.two_write_queues: 0
+2023/05/19-15:52:42.613828 7fc491e53700             Options.manual_wal_flush: 0
+2023/05/19-15:52:42.613834 7fc491e53700             Options.max_background_jobs: 2
+2023/05/19-15:52:42.613834 7fc491e53700             Options.max_background_compactions: -1
+2023/05/19-15:52:42.613835 7fc491e53700             Options.avoid_flush_during_shutdown: 0
+2023/05/19-15:52:42.613836 7fc491e53700           Options.writable_file_max_buffer_size: 1048576
+2023/05/19-15:52:42.613836 7fc491e53700             Options.delayed_write_rate : 16777216
+2023/05/19-15:52:42.613837 7fc491e53700             Options.max_total_wal_size: 0
+2023/05/19-15:52:42.613838 7fc491e53700             Options.delete_obsolete_files_period_micros: 21600000000
+2023/05/19-15:52:42.613839 7fc491e53700                   Options.stats_dump_period_sec: 600
+2023/05/19-15:52:42.613839 7fc491e53700                          Options.max_open_files: -1
+2023/05/19-15:52:42.613840 7fc491e53700                          Options.bytes_per_sync: 0
+2023/05/19-15:52:42.613841 7fc491e53700                      Options.wal_bytes_per_sync: 0
+2023/05/19-15:52:42.613841 7fc491e53700       Options.compaction_readahead_size: 0
+2023/05/19-15:52:42.613842 7fc491e53700 Compression algorithms supported:
+2023/05/19-15:52:42.613843 7fc491e53700 	kZSTDNotFinalCompression supported: 1
+2023/05/19-15:52:42.613853 7fc491e53700 	kZSTD supported: 1
+2023/05/19-15:52:42.613854 7fc491e53700 	kXpressCompression supported: 0
+2023/05/19-15:52:42.613855 7fc491e53700 	kLZ4HCCompression supported: 1
+2023/05/19-15:52:42.613856 7fc491e53700 	kLZ4Compression supported: 1
+2023/05/19-15:52:42.613857 7fc491e53700 	kBZip2Compression supported: 1
+2023/05/19-15:52:42.613858 7fc491e53700 	kZlibCompression supported: 1
+2023/05/19-15:52:42.613859 7fc491e53700 	kSnappyCompression supported: 1
+2023/05/19-15:52:42.613866 7fc491e53700 Fast CRC32 supported: Not supported on x86
+2023/05/19-15:52:42.618429 7fc491e53700 [db/db_impl.cc:252] Shutdown: canceling all background work
+2023/05/19-15:52:42.618486 7fc491e53700 [db/db_impl.cc:398] Shutdown complete

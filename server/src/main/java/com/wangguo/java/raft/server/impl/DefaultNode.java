@@ -591,7 +591,7 @@ public class DefaultNode implements Node, ClusterMembershipChanges {
 
             // 发送投票请求
             for (Peer peer : peers) {
-                futureArrayList.add(RaftThreadPool.submit(() -> {
+                futureArrayList.add(RaftThreadPool.submit(() -> { // 向futureArrayList中提交多个投票请求
                     long lastTerm = 0L; // 初始化任期为0
                     LogEntry last = logModule.getLast();
                     if (last != null) {
@@ -622,10 +622,10 @@ public class DefaultNode implements Node, ClusterMembershipChanges {
 
             log.info("futureArrayList.size() : {}", futureArrayList.size());
             for (Future<RvoteResult> future : futureArrayList) {
-                RaftThreadPool.submit(() -> {
+                RaftThreadPool.submit(() -> { //向线程池中提交任务用于获取上面线程的任务结果并且由线程池中的线程执行括号中的逻辑
                     try {
                         // future异步计算通过get获取结果
-                        RvoteResult result = future.get(3000, MILLISECONDS);
+                        RvoteResult result = future.get(3000, MILLISECONDS); //
                         if (result == null) {
                             return -1;
                         }

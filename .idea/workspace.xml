@@ -4,27 +4,90 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24cbfa49-19cd-45aa-a843-dba7da8ce11c" name="Changes" comment="2023-5-18 完成了日志复制部分的所有代码和Leader选举的所有代码 待测试">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/log4j.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/CURRENT" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/IDENTITY" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/LOCK" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/LOG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/LOG.old.1684481205761080" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/LOG.old.1684481607581311" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/resources/log4j.xml" afterDir="false" />
+    <list default="true" id="24cbfa49-19cd-45aa-a843-dba7da8ce11c" name="Changes" comment="2023-5-19 完成了Raft算法的Leader选举和日志复制功能，并通过了测试。">
+      <change afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/logModule/000007.sst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/logModule/000009.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/logModule/CURRENT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/logModule/IDENTITY" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/logModule/LOCK" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/logModule/LOG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/logModule/LOG.old.1684483429945264" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/logModule/LOG.old.1684483788113745" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/logModule/MANIFEST-000008" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/logModule/OPTIONS-000008" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/logModule/OPTIONS-000011" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/000030.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/LOG.old.1684482770749960" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/LOG.old.1684483080579686" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/LOG.old.1684483138666100" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/LOG.old.1684483209090730" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/LOG.old.1684483428998952" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/LOG.old.1684483787174957" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/MANIFEST-000029" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/OPTIONS-000029" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/OPTIONS-000032" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8776/logModule/000003.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8776/logModule/CURRENT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8776/logModule/IDENTITY" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8776/logModule/LOCK" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8776/logModule/LOG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8776/logModule/MANIFEST-000001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8776/logModule/OPTIONS-000005" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8776/stateMachine/000003.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8776/stateMachine/CURRENT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8776/stateMachine/IDENTITY" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8776/stateMachine/LOCK" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8776/stateMachine/LOG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8776/stateMachine/MANIFEST-000001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8776/stateMachine/OPTIONS-000005" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8777/logModule/000003.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8777/logModule/CURRENT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8777/logModule/IDENTITY" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8777/logModule/LOCK" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8777/logModule/LOG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8777/logModule/MANIFEST-000001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8777/logModule/OPTIONS-000005" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8777/stateMachine/000003.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8777/stateMachine/CURRENT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8777/stateMachine/IDENTITY" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8777/stateMachine/LOCK" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8777/stateMachine/LOG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8777/stateMachine/MANIFEST-000001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8777/stateMachine/OPTIONS-000005" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8778/logModule/000003.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8778/logModule/CURRENT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8778/logModule/IDENTITY" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8778/logModule/LOCK" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8778/logModule/LOG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8778/logModule/MANIFEST-000001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8778/logModule/OPTIONS-000005" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8778/stateMachine/000003.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8778/stateMachine/CURRENT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8778/stateMachine/IDENTITY" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8778/stateMachine/LOCK" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8778/stateMachine/LOG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8778/stateMachine/MANIFEST-000001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8778/stateMachine/OPTIONS-000005" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8779/logModule/000003.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8779/logModule/CURRENT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8779/logModule/IDENTITY" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8779/logModule/LOCK" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8779/logModule/LOG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8779/logModule/MANIFEST-000001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8779/logModule/OPTIONS-000005" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8779/stateMachine/000003.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8779/stateMachine/CURRENT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8779/stateMachine/IDENTITY" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8779/stateMachine/LOCK" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8779/stateMachine/LOG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8779/stateMachine/MANIFEST-000001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rocksDB-raft/8779/stateMachine/OPTIONS-000005" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/rpc/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/rpc/Request.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/rpc/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wangguo/java/raft/common/rpc/Response.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/ClusterMembershipChangesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/ClusterMembershipChangesImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultLogModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultLogModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultStateMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultStateMachine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/CURRENT" beforeDir="false" afterPath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/CURRENT" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/rocksDB-raft/8775/stateMachine/LOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/current/RaftThreadPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/current/RaftThreadPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/wangguo/java/raft/server/impl/DefaultNode.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +124,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "1.8 (3)",
+    "last_opened_file_path": "D:/raft项目/raft-kv-master/raft-kv-master",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -69,9 +133,16 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.42195123",
-    "settings.editor.selected.configurable": "project.propCompiler"
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="Application" />
+      </set>
+    </option>
+  </component>
   <component name="RunManager" selected="Application.lu-raft-wg5">
     <configuration name="lu-raft-wg3" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
@@ -144,7 +215,7 @@
       <workItem from="1683365006579" duration="62416000" />
       <workItem from="1683725766774" duration="4638000" />
       <workItem from="1683769800414" duration="90114000" />
-      <workItem from="1684461930544" duration="7784000" />
+      <workItem from="1684461930544" duration="27007000" />
     </task>
     <task id="LOCAL-00001" summary="2023-5-7">
       <created>1683462042219</created>
@@ -209,7 +280,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684418673422</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="2023-5-19 完成了Raft算法的Leader选举和日志复制功能，并通过了测试。">
+      <created>1684483698005</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1684483698005</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,6 +314,7 @@
     <MESSAGE value="2023-5-17" />
     <MESSAGE value="2023-5-18 完成了日志复制部分的所有代码和Leader选举的大部分代码" />
     <MESSAGE value="2023-5-18 完成了日志复制部分的所有代码和Leader选举的所有代码 待测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="2023-5-18 完成了日志复制部分的所有代码和Leader选举的所有代码 待测试" />
+    <MESSAGE value="2023-5-19 完成了Raft算法的Leader选举和日志复制功能，并通过了测试。" />
+    <option name="LAST_COMMIT_MESSAGE" value="2023-5-19 完成了Raft算法的Leader选举和日志复制功能，并通过了测试。" />
   </component>
 </project>

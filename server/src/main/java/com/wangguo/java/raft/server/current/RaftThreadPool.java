@@ -19,14 +19,14 @@ public class RaftThreadPool {
     private static ScheduledExecutorService ss = getScheduled();
 
     private static ThreadPoolExecutor te = getThreadPool();
-    private static ThreadPoolExecutor getThreadPool() {
+    private static ThreadPoolExecutor getThreadPool() { // 获取线程池
         return new RaftThreadPoolExecutor(
                 cup,
                 maxPoolSize,
                 keepTime,
                 keepTimeUnit,
                 new LinkedBlockingDeque<>(queueSize),
-                new NameThreadFactory());
+                new NameThreadFactory()); //线程池中生产线程的工厂
     }
     private static ScheduledExecutorService getScheduled(){
         return new ScheduledThreadPoolExecutor(cup, new NameThreadFactory());
@@ -55,14 +55,16 @@ public class RaftThreadPool {
     static class NameThreadFactory implements ThreadFactory {
         public Thread newThread(Runnable r) {
             Thread t = new RaftThread("Raft thread", r);
-            //标记线程为守护线程或者用户线程
+            //如果为true，那么就是标记线程为守护线程，否则就是普通线程
             t.setDaemon(true);
             //设置线程的优先级
             t.setPriority(5);
             return t;
         }
     }
-    //在线程池中，如果我们需要返回结果则可以调用submit方法，如果需要执行结果的话则可以实现callable，实现Runnable的线程是没有返回值的
+    /**
+     * 在线程池中，如果我们需要返回结果则可以调用submit方法，如果需要返回执行结果的话则可以实现callable，实现Runnable的线程是没有返回值的
+     */
     public static <T> Future<T> submit(Callable r){
         return te.submit(r);
     }
